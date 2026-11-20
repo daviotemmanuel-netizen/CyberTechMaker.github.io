@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>CyberTechMaker Mende – Atelier, vente PC et bureaux stream</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800&family=Figtree:wght@400;500;700&display=swap">
+<style>
+:root{--bg:#0d1215;--p:#151c21;--p2:#1b242a;--ln:#263640;--tx:#e7eff3;--mu:#92a5af;--cy:#2de2e6;--gr:#4ade80;--or:#ffb454;
+--d:"Unbounded","Arial Black",system-ui,sans-serif;--b:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{color-scheme:dark;scroll-behavior:smooth;scroll-padding-top:100px}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--tx);font:400 1rem/1.55 var(--b)}
+a{color:inherit}h1,h2,h3{font-family:var(--d);margin:0;line-height:1.15}
+h1{font-size:clamp(1.8rem,5.5vw,3.4rem);font-weight:800}h2{font-size:clamp(1.3rem,3vw,1.9rem);margin-bottom:.5rem}h3{font-size:1rem;margin-bottom:.3rem}
+p{margin:0 0 .8rem;max-width:64ch}.mu{color:var(--mu)}
+:focus-visible{outline:3px solid var(--cy);outline-offset:2px;border-radius:4px}
+.w{width:min(1100px,100% - 2rem);margin-inline:auto}
+section{padding:2.2rem 0}.alt{background:var(--p);border-block:1px solid var(--ln)}
+#bar{position:fixed;top:0;left:0;height:3px;width:0;background:var(--cy);z-index:50}
+header{position:sticky;top:0;z-index:40;background:rgba(13,18,21,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--ln);padding-top:env(safe-area-inset-top,0px)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:56px}
+.logo{font:800 .95rem var(--d);text-decoration:none}.logo b{color:var(--cy)}
+nav ul{display:flex;gap:1.1rem;list-style:none;margin:0;padding:0;font-size:.92rem}
+nav a{text-decoration:none;color:var(--mu)}nav a:hover,nav a.on{color:var(--cy)}
+@media(max-width:860px){.nav{flex-wrap:wrap;height:auto;padding:.5rem 0 .1rem}header nav{order:3;width:100%;overflow-x:auto;padding-bottom:.5rem}header nav ul{gap:1.3rem;white-space:nowrap;font-size:.95rem}}
+.btn{display:inline-block;padding:.75rem 1.2rem;border-radius:10px;font:700 .98rem var(--b);text-decoration:none;border:2px solid var(--cy);background:var(--cy);color:#041214;cursor:pointer;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}.btn.g{background:transparent;color:var(--tx);border-color:var(--ln)}.btn.g:hover{border-color:var(--cy)}
+.btn.s{padding:.45rem .9rem;font-size:.88rem}.row{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.1rem}
+/* tab bar mobile */
+#tabs{display:none;position:fixed;bottom:0;left:0;right:0;z-index:45;background:rgba(21,28,33,.96);backdrop-filter:blur(10px);border-top:1px solid var(--ln);padding:.35rem .5rem calc(.35rem + env(safe-area-inset-bottom,0px));justify-content:space-around}
+#tabs a{flex:1;text-align:center;text-decoration:none;font-size:.78rem;color:var(--mu);padding:.3rem 0}
+#tabs a b{display:block;font-size:1.2rem;line-height:1.2}#tabs a.on{color:var(--cy)}
+
+/* hero */
+.hero{padding:2rem 0 1.5rem;background:radial-gradient(800px 360px at 90% 0,rgba(45,226,230,.12),transparent 60%)}
+.hg{display:grid;gap:1.6rem;grid-template-columns:1.1fr .9fr;align-items:center}@media(max-width:860px){.hg{grid-template-columns:1fr}}
+.bd{display:inline-flex;gap:.5rem;align-items:center;padding:.3rem .8rem;border:1px solid var(--ln);border-radius:99px;background:var(--p);font-size:.88rem;margin-bottom:.9rem}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--gr);animation:pl 2s infinite}
+@keyframes pl{70%{box-shadow:0 0 0 9px rgba(74,222,128,0)}0%{box-shadow:0 0 0 0 rgba(74,222,128,.6)}}
+.cd{display:flex;gap:.6rem;margin-top:1.1rem}.cd div{background:var(--p);border:1px solid var(--ln);border-radius:10px;padding:.5rem .8rem;text-align:center;min-width:64px}
+.cd b{display:block;font:800 1.3rem var(--d);color:var(--cy)}.cd span{font-size:.75rem;color:var(--mu)}
+/* plan lieu */
+.plan{display:grid;gap:6px;grid-template:"e e at at" 70px "v v st st" 110px "v v st st" 40px "r r r wc" 54px/1fr 1fr 1fr 70px;background:var(--p2);border:1px solid var(--ln);border-radius:14px;padding:10px}
+.z{border-radius:8px;padding:.5rem .6rem;font-size:.82rem;display:flex;flex-direction:column;justify-content:center;border:1px solid;cursor:pointer;background:rgba(255,255,255,.03);color:var(--tx);text-align:left;font-family:var(--b)}
+.z b{font-size:.9rem}.z span{color:var(--mu);font-size:.76rem}
+.z:hover,.z.on{background:rgba(255,255,255,.1)}
+/* tabs panels */
+.tb{display:flex;gap:.4rem;flex-wrap:wrap;margin:.8rem 0}.tb button{padding:.55rem 1rem;border-radius:99px;border:1px solid var(--ln);background:var(--p);color:var(--mu);font:600 .92rem var(--b);cursor:pointer}
+.tb button[aria-selected=true]{background:var(--cy);color:#041214;border-color:var(--cy)}
+.pn{display:grid;gap:1rem;grid-template-columns:1fr 1fr;background:var(--p2);border:1px solid var(--ln);border-radius:14px;padding:1.1rem}@media(max-width:700px){.pn{grid-template-columns:1fr}}
+.pn[hidden]{display:none}.pn ul{margin:0;padding-left:1.1rem;color:var(--mu)}.pn li{margin:.2rem 0}
+.nt{padding:.8rem 1rem;border:1px solid rgba(255,180,84,.5);background:rgba(255,180,84,.08);border-radius:12px;margin-top:1rem}
+/* 3D */
+.v3{display:grid;gap:1rem;grid-template-columns:1.3fr .7fr;align-items:start}@media(max-width:860px){.v3{grid-template-columns:1fr}}
+.stage{height:430px;display:grid;place-items:center;perspective:1000px;background:radial-gradient(circle at 50% 60%,#18242b,var(--bg) 70%);border:1px solid var(--ln);border-radius:14px;overflow:hidden;cursor:grab;touch-action:pan-y;user-select:none}
+.stage:active{cursor:grabbing}
+.sc{width:0;height:0;position:relative;transform-style:preserve-3d}
+.cb,.pl3{position:absolute;transform-style:preserve-3d}
+.f{position:absolute;background:var(--c);border:1px solid rgba(255,255,255,.14)}
+.pl3{border:1px solid var(--ln)}
+.hl .f{background:var(--cy)!important;box-shadow:0 0 16px var(--cy)}
+.scr .f:first-child{background:linear-gradient(135deg,#2de2e6,#0b7f86)}
+.ctl{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin-top:.6rem;font-size:.88rem;color:var(--mu)}.ctl input{flex:1;min-width:110px}
+.pt{display:grid;gap:.4rem}.pt button{text-align:left;padding:.6rem .8rem;border-radius:10px;border:1px solid var(--ln);background:var(--p);color:var(--tx);font:500 .95rem var(--b);cursor:pointer}
+.pt button.on{border-color:var(--cy);background:rgba(45,226,230,.1)}
+#ds{min-height:3.4em;margin-top:.7rem;padding:.7rem .9rem;background:var(--p2);border:1px solid var(--ln);border-radius:10px;font-size:.93rem}
+/* tarifs */
+.tr{display:grid;gap:1rem;grid-template-columns:1fr 1fr}@media(max-width:760px){.tr{grid-template-columns:1fr}}
+.cd2{background:var(--p2);border:1px solid var(--ln);border-radius:14px;padding:1.1rem}
+table{width:100%;border-collapse:collapse}td,th{padding:.55rem .3rem;border-bottom:1px solid var(--ln);text-align:left}td:last-child,th:last-child{text-align:right}td:last-child{color:var(--cy);font-weight:700}
+input[type=range]{accent-color:var(--cy);width:100%}
+.big{font:800 2rem var(--d);color:var(--cy)}
+/* faq & form */
+details{background:var(--p);border:1px solid var(--ln);border-radius:10px;padding:.7rem 1rem;margin-bottom:.5rem}summary{cursor:pointer;font-weight:700}details p{margin:.5rem 0 0;color:var(--mu)}
+.g3{display:grid;gap:.8rem;grid-template-columns:repeat(3,1fr)}@media(max-width:760px){.g3{grid-template-columns:1fr}}
+.card{background:var(--p2);border:1px solid var(--ln);border-radius:12px;padding:1rem}.card p{margin:0;color:var(--mu);font-size:.93rem}
+form{display:grid;gap:.8rem;background:var(--p);border:1px solid var(--ln);border-radius:14px;padding:1.1rem}
+.fr{display:grid;gap:.8rem;grid-template-columns:1fr 1fr}@media(max-width:640px){.fr{grid-template-columns:1fr}}
+label{display:grid;gap:.3rem;font-weight:500;font-size:.92rem}
+input:not([type=range]),select,textarea{width:100%;padding:.7rem .8rem;border-radius:10px;border:1px solid var(--ln);background:var(--bg);color:var(--tx);font:400 1rem var(--b)}
+textarea{min-height:90px}#ok{display:none;padding:.7rem .9rem;border-radius:10px;background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.5)}
+footer{border-top:1px solid var(--ln);padding:1.4rem 0;color:var(--mu);font-size:.88rem}
+@media(prefers-reduced-motion:reduce){.dot{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<header><div class="w nav">
+<a class="logo" href="#top">Cyber<b>Tech</b>Maker</a>
+<nav aria-label="Navigation"><ul id="nl">
+<li><a href="#lieu">Le lieu</a></li><li><a href="#services">Services</a></li><li><a href="#visite">Visite 3D</a></li><li><a href="#tarifs">Tarifs</a></li><li><a href="#faq">Questions</a></li><li><a href="#contact">Contact</a></li></ul></nav>
+<a class="btn s" href="#contact">Me tenir informé</a></div></header>
+
+<main id="top">
+<div class="hero"><div class="w hg">
+<div>
+<div class="bd"><span class="dot"></span>Annonce : projet d’ouverture à Mende, visé pour juin 2027</div>
+<h1>Répare. Achète. Streame. Un seul lieu.</h1>
+<p class="mu" style="margin-top:.9rem;font-size:1.08rem">Annonce d’un projet en préparation à Mende : un atelier visible, des PC et smartphones, et des bureaux stream de 5 m². Le concept peut encore évoluer.</p>
+<div class="cd" aria-label="Compte à rebours"><div><b id="cj">–</b><span>jours</span></div><div><b id="ch">–</b><span>heures</span></div><div><b id="cm">–</b><span>min</span></div><span style="align-self:center;font-size:.85rem;color:var(--mu)">avant la date visée</span></div>
+<div class="row"><a class="btn" href="#visite">Visiter un bureau en 3D</a><a class="btn g" href="#contact">Réparation ou infos</a></div>
+</div>
+<div id="lieu">
+<h2 style="font-size:1.1rem">Plan du lieu (clique une zone)</h2>
+<div class="plan" id="pl">
+<button class="z" style="grid-area:e;border-color:var(--mu)" data-t="Entrée : tu arrives directement dans la boutique, l’atelier est visible dès la porte."><b>Entrée</b><span>Accueil</span></button>
+<button class="z" style="grid-area:at;border-color:var(--or)" data-t="Atelier visible : tu vois ton appareil réparé ou monté en direct."><b>Atelier</b><span>À vue</span></button>
+<button class="z" style="grid-area:v;border-color:var(--gr)" data-t="Vente : PC et smartphones testés, avec conseils."><b>Vente</b><span>PC et mobiles</span></button>
+<button class="z" style="grid-area:st;border-color:var(--cy)" data-t="Bureaux stream de 5 m² : semi-ouverts côté boutique, double écran, clim."><b>Bureaux stream</b><span>5 m² chacun</span></button>
+<button class="z" style="grid-area:r;border-color:var(--ln)" data-t="Réserve : stockage du matériel et des pièces, non accessible au public."><b>Réserve</b><span>Privé</span></button>
+<button class="z" style="grid-area:wc;border-color:var(--ln)" data-t="Toilettes."><b>WC</b></button>
+</div>
+<p id="pz" class="mu" style="margin:.6rem 0 0;font-size:.9rem">Schéma indicatif d’un projet en préparation, susceptible de changer.</p>
+</div></div></div>
+
+<section id="services"><div class="w">
+<h2>Trois activités prévues dans un même lieu</h2>
+<div class="tb" role="tablist" id="tb">
+<button role="tab" aria-selected="true" data-p="0">Bureaux stream</button><button role="tab" aria-selected="false" data-p="1">Atelier</button><button role="tab" aria-selected="false" data-p="2">Vente</button></div>
+<div class="pn" data-i="0"><div><h3>Le bureau stream envisagé</h3><p class="mu">Un espace d’environ 5 m², semi-ouvert pour garder l’air frais et laisser l’équipe veiller sur le matériel.</p><a class="btn s" href="#visite">Voir en 3D</a></div><ul><li>PC dédié au stream</li><li>2 écrans compacts minimum</li><li>Mini-frigo Xbox (accessible à partir de 3 h de stream)</li><li>Clim ou rafraîchissement</li><li>Clips et petits accessoires de poche</li><li>À l’heure (3,50 €) ou en pack</li></ul></div>
+<div class="pn" data-i="1" hidden><div><h3>Réparation à vue</h3><p class="mu">Tu vois ce qui est fait sur ton appareil, du diagnostic à la remise.</p><a class="btn s" style="background:#25d366;border-color:#25d366" href="https://wa.me/33611770626" rel="noopener">Demander sur WhatsApp</a></div><ul><li>Réparation PC et smartphones</li><li>Montage de PC sur mesure</li><li>Diagnostic</li><li>Reconditionnement</li></ul></div>
+<div class="pn" data-i="2" hidden><div><h3>PC et smartphones</h3><p class="mu">Une sélection testée est envisagée, avec les conseils de l’équipe (dont Noah).</p><a class="btn s" style="background:#25d366;border-color:#25d366" href="https://wa.me/33611770626" rel="noopener">Infos sur WhatsApp</a></div><ul><li>PC gamer et bureautique</li><li>Smartphones reconditionnés</li><li>Conseils selon ton budget</li><li>Offre détaillée communiquée plus tard</li></ul></div>
+<div class="nt"><b>Ni Airbnb, ni sous-location.</b> Ce n’est pas un logement ni un studio fermé : c’est un atelier, une boutique et des bureaux stream de 5 m².</div>
+</div></section>
+
+<section id="visite" class="alt"><div class="w">
+<h2>Aperçu 3D du bureau stream envisagé</h2>
+<p class="mu">Fais glisser la scène pour tourner. Choisis une pièce de la liste pour la repérer.</p>
+<div class="v3"><div>
+<div class="stage" id="st"><div class="sc" id="sc"></div></div>
+<div class="ctl"><label for="rg" style="display:inline">Rotation</label><input id="rg" type="range" min="-80" max="80" value="-30" aria-label="Rotation de la scène"><label for="zm" style="display:inline">Zoom</label><input id="zm" type="range" min="0.6" max="1.8" step="0.05" value="1" aria-label="Zoom"><button class="btn s g" data-v="-10,0" type="button">Face</button><button class="btn s g" data-v="-75,0" type="button">Dessus</button><button class="btn s g" data-v="-22,-65" type="button">Côté</button><button class="btn s g" id="rs" type="button">Réinitialiser</button></div>
+</div><div>
+<div class="pt" id="pt">
+<button data-k="scr" data-t="Deux écrans compacts : un pour le jeu, un pour le chat et les outils de live.">Écrans (×2)</button>
+<button data-k="pc" data-t="PC dédié au stream, posé au sol pour libérer le bureau.">PC stream</button>
+<button data-k="ac" data-t="Clim ou rafraîchissement : évacue la chaleur du PC, des écrans et de toi.">Clim</button>
+<button data-k="fr" data-t="Mini-frigo Xbox : accessible uniquement avec un minimum de 3 heures de stream (accès au PC). Tes boissons à portée de main.">Mini-frigo Xbox (dès 3 h)</button>
+<button data-k="op" data-t="Côté ouvert sur la boutique et cloison à claire-voie : l’air circule et l’équipe garde un œil sur les postes.">Côté ouvert et cloison</button>
+<button data-k="ch" data-t="Fauteuil gaming : assis confortable pour les longues sessions.">Fauteuil gaming</button>
+<button data-k="mic" data-t="Micro sur bras avec filtre anti-pop pour une voix claire.">Micro</button>
+<button data-k="cl" data-t="Casque sur son support, webcam, support téléphone et petits clips de poche : tout est à portée de main.">Casque, webcam et clips</button>
+<button data-k="led" data-t="Éclairage LED derrière le bureau et sous l’étagère, pour l’ambiance du live.">Éclairage LED</button>
+<button data-k="aco" data-t="Panneaux acoustiques sur les murs pour limiter l’écho et le bruit entre les box.">Panneaux acoustiques</button>
+<button data-k="el" data-t="Prise réseau RJ45 au mur et multiprise au sol : PC en filaire pour un stream stable.">Réseau et électricité</button>
+</div><div id="ds">Choisis une pièce pour voir son rôle.</div></div></div>
+</div></section>
+
+<section id="tarifs"><div class="w">
+<h2>Tarifs envisagés</h2>
+<div class="tr"><div class="cd2"><h3>Grille prévisionnelle</h3><table><thead><tr><th>Formule</th><th>Durée</th><th>Prix</th></tr></thead><tbody><tr><td>À l’heure</td><td>1 h</td><td>3,50 €</td></tr><tr><td>Pack 3 h</td><td>3 h</td><td>10,50 €</td></tr><tr><td>Pack après-midi</td><td>14 h–18 h</td><td>14 €</td></tr><tr><td>Pack soirée</td><td>18 h–23 h</td><td>17,50 €</td></tr><tr><td>Pack journée</td><td>9 h 30–19 h 30</td><td>35 €</td></tr></tbody></table><p class="mu" style="margin:.6rem 0 0;font-size:.85rem">Simple projet de grille, non définitif. Tous les packs donnent accès au mini-frigo Xbox (à partir de 3 h de stream). Une fois le lieu ouvert, ceux qui réservent pourront rester plus longtemps. Aucune réservation à l’avance pour le moment.</p></div>
+<div class="cd2"><h3>Combien d’heures te faut-il ?</h3><label for="hr"><span id="hv">4 h</span></label><input id="hr" type="range" min="1" max="30" value="4"><p class="mu" style="margin:.6rem 0 0">3,50 € par heure à l’unité. <span id="hf"></span></p><div class="big" id="hp"></div></div></div>
+<h2 style="margin-top:1.6rem">Réparations : prix prévisionnels</h2>
+<div class="cd2"><table><thead><tr><th>Smartphone</th><th>Prix</th></tr></thead><tbody><tr><td>Diagnostic</td><td>Gratuit</td></tr><tr><td>Batterie</td><td>dès 30 €</td></tr><tr><td>Connecteur de charge</td><td>dès 35 €</td></tr><tr><td>Vitre arrière</td><td>dès 35 €</td></tr><tr><td>Caméra arrière</td><td>dès 40 €</td></tr><tr><td>Écran Android</td><td>dès 65 €</td></tr><tr><td>Écran iPhone</td><td>dès 95 €</td></tr></tbody></table>
+<table style="margin-top:.8rem"><thead><tr><th>PC</th><th>Prix</th></tr></thead><tbody><tr><td>Installation Windows + pilotes</td><td>30 €</td></tr><tr><td>Nettoyage + pâte thermique</td><td>dès 30 €</td></tr><tr><td>Montage PC sur mesure (forfait, hors pièces)</td><td>45 €</td></tr><tr><td>Remplacement SSD + clonage</td><td>dès 70 €</td></tr><tr><td>Écran de PC portable</td><td>dès 95 €</td></tr></tbody></table></div>
+<p class="mu" style="margin:.7rem 0 0;font-size:.88rem">Diagnostic gratuit : seules les réparations qui suivent sont facturées. Prix prévisionnels, pièce comprise sauf mention, selon le modèle et la disponibilité des pièces. Ils ne sont pas définitifs tant que le lieu n’est pas ouvert. Notre objectif : des tarifs abordables. Tu as un devis moins cher ailleurs ? Montre-le-nous, on étudie un alignement.</p>
+</div></section>
+
+<section id="faq" class="alt"><div class="w">
+<h2>Questions fréquentes</h2>
+<details><summary>Quand ouvrez-vous ?</summary><p>L’ouverture est visée pour juin 2027 à Mende. La date n’est pas garantie : suis l’annonce sur Instagram.</p></details>
+<details><summary>Le bureau est-il fermé ?</summary><p>Non, il est semi-ouvert côté boutique, pour l’air et la sécurité du matériel.</p></details>
+<details><summary>Puis-je venir juste pour une réparation ?</summary><p>C’est le principe prévu : l’atelier serait ouvert à tous. Pose ta question sur WhatsApp pour en savoir plus.</p></details>
+<details><summary>Peut-on dormir sur place ?</summary><p>Non. C’est un espace de travail, pas un logement.</p></details>
+<details><summary>Le mini-frigo est-il accessible à tous ?</summary><p>Non. Il est réservé à ceux qui prennent au moins 3 heures de stream (accès au PC).</p></details>
+<details><summary>Peut-on rester plus longtemps ?</summary><p>Oui, pour ceux qui réservent, une fois le lieu ouvert. Merci de ne pas réserver dès maintenant pour plus tard.</p></details>
+<details><summary>Puis-je réserver dès maintenant ?</summary><p>Non. Les réservations ouvriront uniquement une fois le lieu ouvert. D’ici là, tu peux poser tes questions par WhatsApp ou les réseaux sociaux.</p></details>
+<details><summary>Comment faire une demande ?</summary><p>Pour le moment, uniquement par les réseaux sociaux (Instagram @ctm_gaming_et_pc) ou par WhatsApp au 06 11 77 06 26.</p></details>
+</div></section>
+
+<section id="contact"><div class="w" style="max-width:820px">
+<h2>Contact et infos</h2>
+<div class="g3" style="margin-bottom:1rem"><div class="card"><h3>Où</h3><p>Mende, Lozère. Adresse non définie à ce jour.</p></div><div class="card"><h3>Quand</h3><p>Ouverture visée en juin 2027. Rien n’est confirmé pour l’instant.</p></div><div class="card"><h3>Réseaux</h3><p><a href="https://www.instagram.com/ctm_gaming_et_pc" rel="noopener">Instagram @ctm_gaming_et_pc</a></p></div></div>
+<div class="nt" style="margin:0 0 1rem"><b>Pas de formulaire pour le moment.</b> Les demandes (infos, réparation, intérêt pour un bureau stream) passent uniquement par les réseaux sociaux ou par WhatsApp. <b>Merci de ne pas réserver pour plus tard :</b> les réservations ouvriront une fois le lieu ouvert.</div>
+<div class="row" style="align-items:center"><a class="btn" style="background:#25d366;border-color:#25d366" href="https://wa.me/33611770626" rel="noopener">Écrire sur WhatsApp : 06 11 77 06 26</a><span class="mu" style="font-size:.9rem">Pour toute demande, c’est le moyen le plus rapide.</span></div>
+</div></section>
+</main>
+<footer><div class="w">© 2027 CyberTechMaker, Mende</div></footer>
+
+<nav id="tabs" aria-label="Navigation mobile"><a href="#top"><b>⌂</b>Accueil</a><a href="#services"><b>⚙</b>Services</a><a href="#visite"><b>◩</b>3D</a><a href="#tarifs"><b>€</b>Tarifs</a><a href="#contact"><b>✉</b>Contact</a></nav>
+
+<script>
+var $=function(i){return document.getElementById(i)};
+/* compte à rebours */
+function tick(){var d=new Date(2027,5,1)-new Date();if(d<0)d=0;$('cj').textContent=Math.floor(d/864e5);$('ch').textContent=Math.floor(d/36e5)%24;$('cm').textContent=Math.floor(d/6e4)%60}
+tick();setInterval(tick,3e4);
+/* plan */
+document.querySelectorAll('.z').forEach(function(z){z.onclick=function(){document.querySelectorAll('.z').forEach(function(o){o.classList.remove('on')});z.classList.add('on');$('pz').textContent=z.dataset.t}});
+/* onglets */
+document.querySelectorAll('#tb button').forEach(function(b){b.onclick=function(){document.querySelectorAll('#tb button').forEach(function(o){o.setAttribute('aria-selected',o===b)});document.querySelectorAll('.pn').forEach(function(p){p.hidden=p.dataset.i!==b.dataset.p})}});
+/* 3D */
+var sc=$('sc'),st=$('st'),rx=-22,ry=-30,zm=1;
+function box(o){var w=document.createElement('div');w.className='cb '+(o.k||'');
+w.style.cssText='width:'+o.w+'px;height:'+o.h+'px;left:'+(-o.w/2)+'px;top:'+(-o.h/2)+'px;--c:'+o.c+';transform:translate3d('+o.x+'px,'+o.y+'px,'+o.z+'px) rotateY('+(o.r||0)+'deg)';
+[[o.w,o.h,'translateZ('+o.d/2+'px)',1],[o.w,o.h,'rotateY(180deg) translateZ('+o.d/2+'px)',.6],[o.d,o.h,'rotateY(-90deg) translateZ('+o.w/2+'px)',.8],[o.d,o.h,'rotateY(90deg) translateZ('+o.w/2+'px)',.7],[o.w,o.d,'rotateX(90deg) translateZ('+o.h/2+'px)',1.3],[o.w,o.d,'rotateX(-90deg) translateZ('+o.h/2+'px)',.5]].forEach(function(f){
+var e=document.createElement('div');e.className='f';e.style.cssText='width:'+f[0]+'px;height:'+f[1]+'px;left:'+(o.w-f[0])/2+'px;top:'+(o.h-f[1])/2+'px;transform:'+f[2]+';filter:brightness('+f[3]+')';w.appendChild(e)});
+sc.appendChild(w)}
+function pln(w,h,l,t,tr,bg,k,x){var e=document.createElement('div');e.className='pl3 '+(k||'');e.style.cssText='width:'+w+'px;height:'+h+'px;left:'+l+'px;top:'+t+'px;transform:'+tr+';background:'+bg+(x||'');sc.appendChild(e)}
+pln(300,300,-150,-150,'rotateX(90deg) translateZ(-100px)','repeating-linear-gradient(90deg,transparent 0 49px,#243844 49px 50px),repeating-linear-gradient(0deg,#1a2830 0 49px,#243844 49px 50px)');
+pln(300,200,-150,-100,'translateZ(-150px)','linear-gradient(#1c2a32,#141d22)');
+pln(300,200,-150,-100,'rotateY(90deg) translateZ(-150px)','rgba(38,54,64,.4)');
+pln(300,200,-150,-100,'translateZ(150px)','transparent','op','border:2px dashed #4ade80');
+function B(w,h,d,x,y,z,c,k,r){box({w:w,h:h,d:d,x:x,y:y,z:z,c:c,k:k,r:r})}
+B(300,6,4,0,97,-148,'#10171b');
+/* acoustique */
+[-100,-50,0,50,100].forEach(function(x,i){B(40,40,4,x,-45,-147,i%2?'#2a3a44':'#223039','aco')});
+[-100,-50,0,50].forEach(function(z,i){B(4,40,40,-147,-10,z,i%2?'#2a3a44':'#223039','aco')});
+/* LED */
+B(280,3,2,0,-92,-148,'#2de2e6','led');B(3,100,2,-146,0,-148,'#2de2e6','led');B(150,2,2,0,-78,-128,'#a78bfa','led');
+/* étagère */
+B(150,6,22,0,-82,-137,'#46606d');B(4,10,18,-60,-76,-140,'#35474f');B(4,10,18,60,-76,-140,'#35474f');
+B(8,16,8,-50,-93,-137,'#c98a3a','cl');B(10,10,10,0,-90,-137,'#2de2e6','led');B(8,18,8,50,-95,-137,'#4ade80','cl');
+/* bureau */
+B(220,8,90,0,26,-100,'#46606d');
+B(6,62,86,-107,69,-100,'#35474f');B(6,62,86,107,69,-100,'#35474f');B(208,50,4,0,55,-143,'#35474f');
+B(40,50,70,80,75,-100,'#2f3f47');B(16,2,2,80,65,-64,'#9fb3bd');
+B(180,4,24,-10,42,-125,'#10171b','el');B(2,22,2,-45,29,-128,'#10171b','el');B(2,22,2,42,29,-128,'#10171b','el');
+/* écrans */
+B(70,44,4,-42,-4,-125,'#0c2328','scr',10);B(70,44,4,42,-4,-125,'#0c2328','scr',-10);
+B(26,3,16,-42,20.5,-125,'#2b3a42','scr');B(26,3,16,42,20.5,-125,'#2b3a42','scr');
+B(6,14,5,-42,12,-127,'#2b3a42','scr');B(6,14,5,42,12,-127,'#2b3a42','scr');
+B(12,6,6,-42,-28,-122,'#0a0d0f','cl',10);
+/* clavier souris */
+B(110,1,40,15,21.5,-85,'#161f25');B(70,3,22,-5,19.5,-85,'#0e1519','pc');B(9,4,14,45,19,-85,'#0e1519','pc');
+/* micro */
+B(8,3,8,30,20.5,-125,'#2b3a42','mic');B(3,34,3,30,3,-125,'#2b3a42','mic');B(3,3,34,30,-13,-108,'#2b3a42','mic');
+B(10,12,10,30,-13,-90,'#1b242a','mic');B(16,16,2,30,-13,-84,'#6b7a84','mic');
+/* casque, clips, accessoires */
+B(14,2,14,-90,21,-105,'#2b3a42','cl');B(3,26,3,-90,8,-105,'#2b3a42','cl');B(18,4,8,-90,-6,-105,'#2de2e6','cl');
+B(5,12,10,-99,-2,-105,'#0e1519','cl');B(5,12,10,-81,-2,-105,'#0e1519','cl');
+B(8,3,6,70,20.5,-75,'#ffb454','cl');B(6,3,6,82,20.5,-72,'#4ade80','cl');B(7,3,5,94,20.5,-76,'#2de2e6','cl');B(9,14,3,100,15,-110,'#1b242a','cl');
+B(6,10,6,100,17,-95,'#3d8f5a','fr');
+/* PC tour */
+B(26,56,50,-130,72,-100,'#2b3a42','pc');B(2,40,1,-130,72,-74.5,'#2de2e6','pc');B(20,1,40,-130,43.5,-100,'#10171b','pc');
+/* frigo Xbox */
+B(36,52,40,130,74,-110,'#3d8f5a','fr');B(3,22,3,114,68,-88.5,'#d9e5ea','fr');B(16,16,1,130,60,-89.5,'#bff5d0','fr');
+/* clim */
+B(24,26,80,-136,-70,-30,'#c98a3a','ac');B(20,3,70,-136,-55.5,-30,'#e8b872','ac');B(2,4,8,-123.5,-72,-5,'#2de2e6','ac');
+B(2,24,2,-130,-38,-50,'#2de2e6','ac');B(2,24,2,-125,-30,-30,'#2de2e6','ac');B(2,24,2,-130,-38,-10,'#2de2e6','ac');
+/* tapis et fauteuil */
+B(120,1,90,0,99.5,-40,'#1d2a31');
+B(40,8,40,0,56,-20,'#2b3a42','ch');B(40,52,6,0,26,-1,'#2b3a42','ch');B(24,14,6,0,-10,-1,'#2b3a42','ch');
+B(4,44,1,-10,26,-4.5,'#2de2e6','ch');B(4,44,1,10,26,-4.5,'#2de2e6','ch');
+B(6,4,26,-23,46,-24,'#10171b','ch');B(6,4,26,23,46,-24,'#10171b','ch');B(4,6,4,-23,49,-24,'#10171b','ch');B(4,6,4,23,49,-24,'#10171b','ch');
+B(6,30,6,0,75,-20,'#10171b','ch');B(44,4,6,0,97,-20,'#10171b','ch');B(6,4,44,0,97,-20,'#10171b','ch');
+[[-22,-20],[22,-20],[0,2],[0,-42]].forEach(function(p){B(6,6,6,p[0],97,p[1],'#0a0d0f','ch')});
+/* cloison semi-ouverte */
+for(var i=0;i<7;i++)B(5,120,5,148,40,-130+i*43,'#35474f','op');
+B(5,5,300,148,-18,0,'#46606d','op');B(5,5,300,148,92,0,'#46606d','op');
+/* réseau et électricité */
+B(14,14,2,-110,55,-148.5,'#d9e5ea','el');B(7,5,1,-110,55,-147.5,'#10171b','el');B(2,38,2,-110,81,-146,'#2de2e6','el');B(30,3,6,-110,98.5,-140,'#10171b','el');
+function draw(){var k=Math.min(1,st.clientWidth/440);sc.style.transform='scale('+(k*zm)+') rotateX('+rx+'deg) rotateY('+ry+'deg)';$('rg').value=ry}
+draw();addEventListener('resize',draw);
+$('rg').oninput=function(){ry=+this.value;draw()};
+$('rs').onclick=function(){rx=-22;ry=-30;zm=1;$('zm').value=1;draw()};document.querySelectorAll('[data-v]').forEach(function(b){b.onclick=function(){var v=b.dataset.v.split(',');rx=+v[0];ry=+v[1];draw()}});$('zm').oninput=function(){zm=+this.value;draw()};
+var dg=null;st.onpointerdown=function(e){dg=[e.clientX,e.clientY,ry,rx]};
+addEventListener('pointerup',function(){dg=null});
+addEventListener('pointermove',function(e){if(!dg)return;ry=Math.max(-80,Math.min(80,dg[2]+(e.clientX-dg[0])*.5));rx=Math.max(-60,Math.min(-5,dg[3]+(e.clientY-dg[1])*.3));draw()});
+document.querySelectorAll('#pt button').forEach(function(b){b.onclick=function(){document.querySelectorAll('#pt button').forEach(function(o){o.classList.remove('on')});b.classList.add('on');
+sc.querySelectorAll('.hl').forEach(function(e){e.classList.remove('hl')});sc.querySelectorAll('.'+b.dataset.k).forEach(function(e){e.classList.add('hl')});$('ds').textContent=b.dataset.t}});
+/* simulateur */
+function sim(){var h=+$('hr').value;$('hv').textContent=h+' h';$('hf').textContent=h>=3?'Mini-frigo Xbox accessible.':'Mini-frigo Xbox à partir de 3 h.';$('hp').textContent=(h*3.5).toFixed(2).replace('.',',').replace(',00','')+' €'}
+$('hr').oninput=sim;sim();
+/* progression + navigation active */
+var ids=['top','lieu','services','visite','tarifs','faq','contact'];
+addEventListener('scroll',function(){var h=document.documentElement;$('bar').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';
+var cur='top';ids.forEach(function(i){if($(i).getBoundingClientRect().top<140)cur=i});
+document.querySelectorAll('nav a,#tabs a').forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+cur)});
+if(cur!==window.lc){window.lc=cur;var nv=document.querySelector('header nav'),a=nv.querySelector('a[href="#'+cur+'"]');nv.scrollTo({left:a?a.getBoundingClientRect().left-nv.getBoundingClientRect().left+nv.scrollLeft-(nv.clientWidth-a.offsetWidth)/2:0,behavior:'smooth'})}},{passive:true});
+</script>
+</body>
+</html>
